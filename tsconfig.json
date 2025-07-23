@@ -14,6 +14,9 @@
     },
     {
       "path": "./apps/first-api"
+    },
+    {
+      "path": "./libs/db"
     }
   ]
 }
