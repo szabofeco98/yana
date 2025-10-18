@@ -16,7 +16,7 @@
       "path": "./apps/first-api"
     },
     {
-      "path": "./libs/db"
+      "path": "./libs/dbv2"
     }
   ]
 }

@@ -4,7 +4,7 @@
   "include": [],
   "references": [
     {
-      "path": "../../libs/db"
+      "path": "../../libs/dbv2"
     },
     {
       "path": "./tsconfig.app.json"

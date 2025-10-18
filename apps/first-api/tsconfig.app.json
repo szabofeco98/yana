@@ -21,7 +21,7 @@
   ],
   "references": [
     {
-      "path": "../../libs/db/tsconfig.lib.json"
+      "path": "../../libs/dbv2/tsconfig.lib.json"
     }
   ]
 }

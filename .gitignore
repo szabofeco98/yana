@@ -50,3 +50,6 @@ out
 test-output
 
 .env
+/generated/prisma
+*generated/
+*migrations/
