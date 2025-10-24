@@ -17,6 +17,9 @@
     },
     {
       "path": "./libs/dbv2"
+    },
+    {
+      "path": "./libs/common"
     }
   ]
 }
