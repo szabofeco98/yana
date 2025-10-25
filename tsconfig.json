@@ -10,16 +10,16 @@
       "path": "./apps/yana"
     },
     {
-      "path": "./apps/first-api-e2e"
-    },
-    {
-      "path": "./apps/first-api"
-    },
-    {
       "path": "./libs/dbv2"
     },
     {
       "path": "./libs/common"
+    },
+    {
+      "path": "./apps/auth-api-e2e"
+    },
+    {
+      "path": "./apps/auth-api"
     }
   ]
 }

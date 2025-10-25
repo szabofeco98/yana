@@ -1,10 +1,10 @@
 {
-  "name": "@yana/first-api-e2e",
+  "name": "@yana/auth-api-e2e",
   "version": "0.0.1",
   "private": true,
   "nx": {
     "implicitDependencies": [
-      "@yana/first-api"
+      "@yana/auth-api"
     ],
     "targets": {
       "e2e": {
@@ -13,12 +13,12 @@
           "{projectRoot}/test-output/jest/coverage"
         ],
         "options": {
-          "jestConfig": "apps/first-api-e2e/jest.config.ts",
+          "jestConfig": "apps/auth-api-e2e/jest.config.ts",
           "passWithNoTests": true
         },
         "dependsOn": [
-          "@yana/first-api:build",
-          "@yana/first-api:serve"
+          "@yana/auth-api:build",
+          "@yana/auth-api:serve"
         ]
       }
     }

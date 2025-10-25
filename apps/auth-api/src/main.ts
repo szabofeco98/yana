@@ -1,4 +1,4 @@
-import { db, redisClient, securityUsersTable } from '@yana/dbv2';
+import { redisClient } from '@yana/dbv2';
 import express from 'express';
 import * as path from 'path';
 

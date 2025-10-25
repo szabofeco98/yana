@@ -21,10 +21,10 @@
   ],
   "references": [
     {
-      "path": "../../libs/common/tsconfig.lib.json"
+      "path": "../../libs/dbv2/tsconfig.lib.json"
     },
     {
-      "path": "../../libs/dbv2/tsconfig.lib.json"
+      "path": "../../libs/common/tsconfig.lib.json"
     }
   ]
 }

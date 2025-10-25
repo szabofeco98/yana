@@ -4,10 +4,10 @@
   "include": [],
   "references": [
     {
-      "path": "../../libs/common"
+      "path": "../../libs/dbv2"
     },
     {
-      "path": "../../libs/dbv2"
+      "path": "../../libs/common"
     },
     {
       "path": "./tsconfig.app.json"

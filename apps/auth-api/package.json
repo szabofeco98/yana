@@ -1,5 +1,5 @@
 {
-  "name": "@yana/first-api",
+  "name": "@yana/auth-api",
   "version": "0.0.1",
   "private": true,
   "nx": {
@@ -12,15 +12,15 @@
           "build"
         ],
         "options": {
-          "buildTarget": "@yana/first-api:build",
+          "buildTarget": "@yana/auth-api:build",
           "runBuildTargetDependencies": false
         },
         "configurations": {
           "development": {
-            "buildTarget": "@yana/first-api:build:development"
+            "buildTarget": "@yana/auth-api:build:development"
           },
           "production": {
-            "buildTarget": "@yana/first-api:build:production"
+            "buildTarget": "@yana/auth-api:build:production"
           }
         }
       },

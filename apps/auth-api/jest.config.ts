@@ -1,5 +1,5 @@
 export default {
-  displayName: '@yana/first-api',
+  displayName: '@yana/auth-api',
   preset: '../../jest.preset.js',
   testEnvironment: 'node',
   transform: {
