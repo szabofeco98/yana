@@ -1,6 +1,6 @@
-import { createClient, RedisClientType } from 'redis';
+import { createClient, RedisClientType, RedisDefaultModules } from 'redis';
 
-export const redisClient: RedisClientType = createClient({
+export const redisClient: RedisClientType<RedisDefaultModules> = createClient({
   url: process.env.REDIS_URL,
 });
 

@@ -12,3 +12,14 @@ export class EmailOrUsernameAlreadyExists extends CustomError {
     this.name = 'EmailOrUsernameAlreadyExists';
   }
 }
+
+export class InvalidCredentialsError extends CustomError {
+  code = ERROR_CODES.INVALID_CREDENTIALS;
+  status = 401;
+  errors: CustomErrorValue[] = [];
+
+  constructor() {
+    super('Invalid email or password');
+    this.name = 'InvalidCredentialsError';
+  }
+}

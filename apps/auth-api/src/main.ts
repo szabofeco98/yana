@@ -3,6 +3,7 @@ import express from 'express';
 import * as path from 'path';
 
 import { ROUTES } from './constants/routes.constants';
+import loginRoute from './routes/login.routes';
 import securityUserRoute from './routes/security-user.routes';
 
 const app = express();
@@ -13,7 +14,10 @@ app.use(express.json());
 
 app.use(`/${ROUTES.SECURITY_USERS}`, securityUserRoute);
 
+app.use(`/${ROUTES.LOGIN}`, loginRoute);
+
 const port = process.env.PORT || 3333;
+
 const server = app.listen(port, async () => {
   await redisClient.set('key', 'value');
   const value = await redisClient.get('key');

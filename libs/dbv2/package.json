@@ -17,6 +17,7 @@
     "./package.json": "./package.json"
   },
   "dependencies": {
+    "@types/redis": "^4.0.10",
     "dotenv": "^16.4.7",
     "drizzle-orm": "^0.44.6",
     "pg": "^8.16.3",

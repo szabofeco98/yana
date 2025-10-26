@@ -1,0 +1,6 @@
+export const AUTH_SETTINGS = {
+  SESSION_TOKEN: 'session_token',
+  REFRESH_TOKEN: 'refresh_token',
+  REFRESH_TOKEN_EXPIRY_DAYS: 7,
+  SESSION_TOKEN_EXPIRY_MINUTES: 5,
+};

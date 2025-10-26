@@ -20,6 +20,9 @@
     },
     {
       "path": "./apps/auth-api"
+    },
+    {
+      "path": "./libs/auth"
     }
   ]
 }

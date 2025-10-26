@@ -30,7 +30,7 @@
           "watchDepsName": "watch-deps"
         }
       },
-      "exclude": ["libs/dbv2/*", "libs/common/*"]
+      "exclude": ["libs/dbv2/*", "libs/common/*", "libs/auth/*"]
     },
     {
       "plugin": "@nx/next/plugin",
@@ -74,7 +74,7 @@
     },
     {
       "plugin": "@nx/js/typescript",
-      "include": ["libs/dbv2/*", "common/*", "libs/common/*"],
+      "include": ["libs/dbv2/*", "common/*", "libs/common/*", "libs/auth/*"],
       "options": {
         "typecheck": {
           "targetName": "typecheck"
