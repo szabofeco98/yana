@@ -23,6 +23,12 @@
     },
     {
       "path": "./libs/auth"
+    },
+    {
+      "path": "./apps/post-api-e2e"
+    },
+    {
+      "path": "./apps/post-api"
     }
   ]
 }

@@ -4,7 +4,8 @@
   "license": "MIT",
   "scripts": {
     "db:push": "nx run @yana/dbv2:push",
-    "auth-api:run": "npx nx run @yana/auth-api:serve --configuration=development"
+    "auth-api:run": "npx nx run @yana/auth-api:serve --configuration=development",
+    "post-api:run": "npx nx run @yana/post-api:serve --configuration=development"
   },
   "private": true,
   "dependencies": {

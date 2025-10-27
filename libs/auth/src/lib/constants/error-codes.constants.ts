@@ -1,0 +1,3 @@
+export const ERROR_CODES = {
+  SESSION_EXPIRED: 'SESSION_EXPIRED',
+};

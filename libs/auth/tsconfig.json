@@ -4,6 +4,12 @@
   "include": [],
   "references": [
     {
+      "path": "../dbv2"
+    },
+    {
+      "path": "../common"
+    },
+    {
       "path": "./tsconfig.lib.json"
     },
     {
