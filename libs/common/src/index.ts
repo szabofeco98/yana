@@ -4,3 +4,4 @@ export * from './lib/constants/error-codes.constant.js';
 export * from './lib/exceptions/exceptions.js';
 export * from './lib/utils/response-handler.util.js';
 export * from './lib/utils/date.utils.js';
+export * from './lib/interfaces/response/default.response.js';

@@ -1,15 +1,14 @@
 import { AUTH_SETTINGS } from '@yana/auth';
-import { calculateDays, calculateMinutes } from '@yana/common';
+import { calculateDays, calculateMinutes, DefaultResponse } from '@yana/common';
 import { and, db, eq, redisClient, securityUsersTable } from '@yana/dbv2';
 import { randomUUID } from 'crypto';
-import { Response } from 'express';
+import { Request, Response } from 'express';
 
-import { InvalidCredentialsError } from '../exceptions/exceptions';
+import { InvalidCredentialsError, InvalidSessionError } from '../exceptions/exceptions';
 import { LoginRequest } from '../interfaces/requests/login-request.interface';
-import { LoginResponse } from '../interfaces/responses/login-response.interface';
 import { TokenValue } from '../interfaces/token/token-value.interface';
 
-export const login = async ({ email, password }: LoginRequest, res: Response): Promise<LoginResponse> => {
+export const login = async ({ email, password }: LoginRequest, res: Response): Promise<DefaultResponse> => {
   const userId = await db
     .select({ id: securityUsersTable.id })
     .from(securityUsersTable)
@@ -19,15 +18,38 @@ export const login = async ({ email, password }: LoginRequest, res: Response): P
   if (userId.length === 0) {
     throw new InvalidCredentialsError();
   }
-  const { sessionToken, refreshToken } = generateTokens(userId[0].id);
-
-  saveCookie(AUTH_SETTINGS.SESSION_TOKEN, sessionToken, res, calculateMinutes(AUTH_SETTINGS.SESSION_TOKEN_EXPIRY_MINUTES));
-  saveCookie(AUTH_SETTINGS.REFRESH_TOKEN, refreshToken, res, calculateDays(AUTH_SETTINGS.REFRESH_TOKEN_EXPIRY_DAYS));
+  setCookies(generateTokens(userId[0].id), res);
 
   return { message: 'Login successful' };
 };
 
-export const generateTokens = (userId: string): TokenValue => {
+export const refreshToken = async (req: Request, res: Response): Promise<DefaultResponse> => {
+  const refreshToken = req.cookies[AUTH_SETTINGS.REFRESH_TOKEN];
+  const sessionToken = req.cookies[AUTH_SETTINGS.SESSION_TOKEN];
+  if (!refreshToken) {
+    throw new InvalidSessionError();
+  }
+
+  const userId = await redisClient.getDel(`${AUTH_SETTINGS.REFRESH_TOKEN}:${refreshToken}`);
+  if (!userId) {
+    throw new InvalidSessionError();
+  }
+
+  if (sessionToken) {
+    await redisClient.del(`${AUTH_SETTINGS.SESSION_TOKEN}:${sessionToken}`);
+  }
+
+  setCookies(generateTokens(userId), res);
+
+  return { message: 'Refresh successful' };
+};
+
+const setCookies = ({ sessionToken, refreshToken }: TokenValue, res: Response): void => {
+  saveCookie(AUTH_SETTINGS.SESSION_TOKEN, sessionToken, res, calculateMinutes(AUTH_SETTINGS.SESSION_TOKEN_EXPIRY_MINUTES));
+  saveCookie(AUTH_SETTINGS.REFRESH_TOKEN, refreshToken, res, calculateDays(AUTH_SETTINGS.REFRESH_TOKEN_EXPIRY_DAYS));
+};
+
+const generateTokens = (userId: string): TokenValue => {
   const sessionToken = randomUUID();
   const refreshToken = randomUUID();
 

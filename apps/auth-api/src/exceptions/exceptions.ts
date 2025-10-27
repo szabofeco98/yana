@@ -23,3 +23,14 @@ export class InvalidCredentialsError extends CustomError {
     this.name = 'InvalidCredentialsError';
   }
 }
+
+export class InvalidSessionError extends CustomError {
+  code = ERROR_CODES.INVALID_CREDENTIALS;
+  status = 401;
+  errors: CustomErrorValue[] = [];
+
+  constructor() {
+    super('Invalid session');
+    this.name = 'InvalidSessionError';
+  }
+}

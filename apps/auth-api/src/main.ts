@@ -1,4 +1,5 @@
 import { redisClient } from '@yana/dbv2';
+import cookieParser from 'cookie-parser';
 import express from 'express';
 import * as path from 'path';
 
@@ -10,11 +11,12 @@ const app = express();
 
 app.use('/assets', express.static(path.join(__dirname, 'assets')));
 
+app.use(cookieParser());
 app.use(express.json());
 
 app.use(`/${ROUTES.SECURITY_USERS}`, securityUserRoute);
 
-app.use(`/${ROUTES.LOGIN}`, loginRoute);
+app.use('', loginRoute);
 
 const port = process.env.PORT || 3333;
 
